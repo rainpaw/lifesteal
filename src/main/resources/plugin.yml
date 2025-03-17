@@ -1,0 +1,7 @@
+name: Lifesteal
+version: '1.0-SNAPSHOT'
+main: io.github.rainpaw.lifesteal.Lifesteal
+api-version: '1.21'
+authors: [rainpaw10]
+description: A Lifesteal plugin copy aimed at being as close to the original as possible.
+website: rainpaw.github.io
