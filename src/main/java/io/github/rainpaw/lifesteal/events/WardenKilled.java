@@ -12,7 +12,7 @@ public class WardenKilled implements Listener {
     public void onWardenDeath(EntityDeathEvent event) {
         if (event.getEntity().getKiller() != null) {
             if (event.getEntity().getType() == EntityType.WARDEN) {
-                event.getDrops().add(ItemManager.heart);
+                event.getDrops().add(ItemManager.getHeart());
             }
         }
     }

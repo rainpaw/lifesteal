@@ -32,6 +32,8 @@ public class RevivalScreenListener implements Listener {
                     } else {
                         player.sendMessage(ChatColor.RED + "(!) An error occurred when executing that action: You cannot revive that player at this time!");
                     }
+                } else if (event.getCurrentItem().getType() == Material.BARRIER) {
+                    player.closeInventory();
                 }
             }
             event.setCancelled(true);

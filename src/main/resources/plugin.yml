@@ -5,3 +5,10 @@ api-version: '1.21'
 authors: [rainpaw10]
 description: A Lifesteal plugin copy aimed at being as close to the original as possible.
 website: rainpaw.github.io
+commands:
+  withdraw:
+    description: Withdraws a specified amount of hearts from the player.
+    usage: /<command> [amount]
+  revive:
+    description: Revives a heart-banned player.
+    usage: /<command>

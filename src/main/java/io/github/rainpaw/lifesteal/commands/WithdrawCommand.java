@@ -22,17 +22,17 @@ public class WithdrawCommand implements CommandExecutor {
         if (cmd.getName().equalsIgnoreCase("withdraw")) {
             if (args.length == 1) {
                 try {
-                    Double heartAmount = Double.parseDouble(args[0]);
+                    double heartAmount = Double.parseDouble(args[0]);
                     if ((heartAmount * 2) > (player.getAttribute(Attribute.MAX_HEALTH).getBaseValue() - 2)) {
                         heartAmount = (player.getAttribute(Attribute.MAX_HEALTH).getBaseValue() - 2) / 2;
                     }
 
-                    ItemStack heartItem = new ItemStack(ItemManager.heart);
-                    heartItem.setAmount(heartAmount.intValue());
+                    ItemStack heartItem = new ItemStack(ItemManager.getHeart());
+                    heartItem.setAmount((int) heartAmount);
 
                     player.getInventory().addItem(heartItem);
-                    player.getAttribute(Attribute.MAX_HEALTH).setBaseValue(player.getAttribute(Attribute.MAX_HEALTH).getBaseValue() - (heartAmount.intValue() * 2));
-                    player.sendMessage("§aWithdrew §f" + heartAmount.intValue() + " §ahearts.");
+                    player.getAttribute(Attribute.MAX_HEALTH).setBaseValue(player.getAttribute(Attribute.MAX_HEALTH).getBaseValue() - (Math.round(heartAmount) * 2));
+                    player.sendMessage("§aWithdrew §f" + Math.round(heartAmount) + (Math.round(heartAmount) == 1 ? " §aheart." : " §ahearts."));
 
                     if (player.getAttribute(Attribute.MAX_HEALTH).getBaseValue() < player.getHealth()) {
                         player.setHealth(player.getAttribute(Attribute.MAX_HEALTH).getBaseValue());

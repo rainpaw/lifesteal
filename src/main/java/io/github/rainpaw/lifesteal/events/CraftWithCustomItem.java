@@ -15,7 +15,7 @@ public class CraftWithCustomItem implements Listener {
 
         for (ItemStack stack : inv.getMatrix()) {
             if (stack != null) {
-                if (stack.isSimilar(ItemManager.heart)) {
+                if (stack.isSimilar(ItemManager.getHeart())) {
                     inv.setResult(null);
                 }
             }

@@ -27,6 +27,12 @@ public class RevivalScreen implements InventoryHolder {
         paneItemMeta.setDisplayName("§f");
         paneItem.setItemMeta(paneItemMeta);
 
+        // Close Item
+        ItemStack closeItem = new ItemStack(Material.BARRIER, 1);
+        ItemMeta closeItemMeta = closeItem.getItemMeta();
+        closeItemMeta.setDisplayName(ChatColor.RED + "Close");
+        closeItem.setItemMeta(closeItemMeta);
+
         item = paneItem;
 
         // Border First Row
@@ -45,6 +51,7 @@ public class RevivalScreen implements InventoryHolder {
             inv.setItem(i+45, item);
         }
 
+        inv.setItem(49, closeItem);
 
         Set<OfflinePlayer> playerSet = Bukkit.getServer().getBannedPlayers();
         ArrayList<OfflinePlayer> playerList = new ArrayList<>(playerSet);

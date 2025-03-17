@@ -14,12 +14,12 @@ public class HeartConsume implements Listener {
     public static void onHeartConsume(PlayerInteractEvent event) {
         if (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK) {
             if (event.getItem() != null) {
-                if (event.getItem().getItemMeta().equals(ItemManager.heart.getItemMeta())) {
+                if (event.getItem().getItemMeta().equals(ItemManager.getHeart().getItemMeta())) {
                     Player player = event.getPlayer();
                     if (player.getAttribute(Attribute.MAX_HEALTH).getBaseValue() < 40) {
                         player.getAttribute(Attribute.MAX_HEALTH).setBaseValue(player.getAttribute(Attribute.MAX_HEALTH).getBaseValue() + 2);
 
-                        player.getInventory().removeItem(ItemManager.heart);
+                        player.getInventory().removeItem(ItemManager.getHeart());
                     }
                 }
             }
