@@ -3,8 +3,8 @@ package io.github.rainpaw.lifesteal.events;
 import io.github.rainpaw.lifesteal.Lifesteal;
 import io.github.rainpaw.lifesteal.guis.RevivalScreen;
 import io.github.rainpaw.lifesteal.guis.RevivalScreenConfirm;
+import io.github.rainpaw.lifesteal.items.ItemManager;
 import org.bukkit.*;
-import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -49,15 +49,15 @@ public class RevivalScreenListener implements Listener {
 
                     Lifesteal.justRevivedPlayers.add(playerName);
 
-                    player.getAttribute(Attribute.MAX_HEALTH).setBaseValue(player.getAttribute(Attribute.MAX_HEALTH).getBaseValue() - 12);
-                    player.sendMessage(ChatColor.GREEN + "Revived " + ChatColor.WHITE + playerName);
+                    player.sendMessage(ChatColor.WHITE + playerName + ChatColor.GREEN + " was revived!");
+
+                    player.getInventory().removeItem(ItemManager.getBeaconOfLife());
 
                     player.closeInventory();
                 }
             }
             event.setCancelled(true);
         }
-
     }
 
 }
